@@ -45,7 +45,7 @@ jobs:
       - name: Upload compiled website files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./out"
+          path: "./dist"
 
   # Single deploy job since we're just deploying
   deploy:
@@ -64,6 +64,9 @@ jobs:
       #   with:
       #     # Upload entire repository
       #     path: './out'
+       - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
